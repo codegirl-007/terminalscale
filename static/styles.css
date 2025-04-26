@@ -1,0 +1,248 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+    "Helvetica Neue", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #000000;
+}
+
+.coffee-interface {
+  width: 500px;
+  height: 320px;
+  background-color: #444;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* Fixed width to prevent any resizing */
+  min-width: 500px;
+  max-width: 500px;
+}
+
+header {
+  background-color: rgb(255,94,0);
+  color: white;
+  padding: 8px 16px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  height: 40px; /* Fixed height for header */
+  display: flex;
+}
+
+h1 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+}
+
+.settings-toggle {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+  margin-left: auto;
+}
+
+.settings-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.settings-icon {
+  color: white;
+}
+
+.icon {
+  margin-right: 8px;
+}
+
+.content {
+  display: flex;
+  flex: 1;
+  gap: 8px;
+  padding: 8px;
+  height: 280px; /* Fixed height for content area */
+}
+
+.column {
+  width: 242px; /* Exact half of 500px minus padding and gap */
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.card {
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  flex: 1;
+}
+
+/* Make the auto-order card take up more space */
+.card-auto-order {
+  flex: 2;
+}
+
+.card-content {
+  padding: 12px;
+  height: 100%;
+}
+
+h2 {
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.coffee-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.coffee-button {
+  height: 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.2s;
+  /* Fixed width for buttons */
+  width: 100px;
+}
+
+.coffee-button:hover {
+  background-color: #f8fafc;
+}
+
+.coffee-button.active {
+  color: white;
+  border-color: #000000;
+}
+
+.coffee-icon {
+  font-size: 1.25rem;
+}
+
+.coffee-name {
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.weight-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.weight-badge {
+  font-size: 1.125rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  /* Fixed width for weight display to prevent movement */
+  min-width: 70px;
+  text-align: center;
+}
+
+.weight-threshold {
+  font-size: 1.125rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  /* Fixed width for weight display to prevent movement */
+  min-width: 70px;
+  text-align: center;
+  width: 70px;
+}
+
+.auto-order {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.label {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.sublabel {
+  font-size: 0.75rem;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+}
+
+.small-icon {
+  font-size: 0.75rem;
+  margin-right: 4px;
+}
+
+.switch-container {
+  position: relative;
+}
+
+.switch-input {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+  position: absolute;
+}
+
+.switch {
+  cursor: pointer;
+  width: 40px;
+  height: 20px;
+  background: #e2e8f0;
+  display: block;
+  border-radius: 100px;
+  position: relative;
+}
+
+.switch:after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.switch-input:checked + .switch {
+  background: rgb(255, 94, 0);
+}
+
+.switch-input:checked + .switch:after {
+  left: calc(100% - 2px);
+  transform: translateX(-100%);
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coffee Ordering Interface</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div class="coffee-interface">
+    <header>
+      <h1><span class="icon">☕</span> Terminal.shop</h1>
+      <button id="settings-toggle" class="settings-toggle" title="Settings">
+          <svg class="settings-icon" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none">
+            <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"></path>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1Z"></path>
+          </svg>
+        </button>
+      </header>
+
+    <div class="content">
+      <!-- Left column -->
+      <div class="column">
+        <div class="card">
+          <div class="card-content">
+            <h2>Select Coffee</h2>
+            <div class="coffee-grid">
+              {{range . }}
+                <button class="coffee-button" data-id={{.Name}} data-name={{.Name}} data-color={{.Color}} data-variant-id={{.VariantID}}>
+                  <span class="coffee-name">{{.Name}}</span>
+                </button>
+              {{end}}
+           </div>
+          </div>
+        </div>
+      </div>
+      <!-- Right column -->
+      <div class="column">
+        <div class="card">
+          <div class="card-content">
+            <div class="weight-container">
+              <h2>Current Weight:</h2>
+              <span class="weight-badge" id="weight-display">0.0g</span>
+            </div>
+            <div class="weight-container">
+              <h2>Weight Threshold:</h2>
+              <input class="weight-threshold" id="weight-threshold" type="text" />
+            </div>
+          </div>
+        </div>
+        <div class="card card-auto-order">
+          <div class="card-content">
+            <div class="auto-order">
+              <div>
+                <label for="auto-order-switch" class="label">Auto Order</label>
+                <span class="sublabel"><span class="small-icon">⏱️</span> Orders when low</span>
+              </div>
+              <div class="switch-container">
+                <input type="checkbox" id="auto-order-switch" class="switch-input">
+                <label for="auto-order-switch" class="switch"></label>
+              </div>
+            </div>
+            <div>
+              <button class="order-now">Order Now</button>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
